@@ -39,23 +39,23 @@ export const login = async(req,res)=>{
         if(!email || !password){
             return res.status(400).json({message:"All the fields are mandatory"})
         }
-        const user = await prisma.user.findUnique({where: {email}})
+        const user = await prisma.user.findUnique({where: {email:email}})
         if(!user){
-            return res.status(404).json({message:"Not found"})
+            return res.status(404).json({message:"User Not found"})
         }
         const isValidPassword = await bcrypt.compare(password, user.password)
         if(!isValidPassword){
-            return res.status(403).json({message:"Wrong password"})
+            return res.status(401).json({message:"Wrong password"})
         }
         const age = 1000*60*60*24*7;
         const token = jwt.sign({
             id:user.id
         }, process.env.JWT_SECRECT_KEY, {expiresIn: age})
-        res.cookie('token', token, {
+        return res.cookie('token', token, {
             httpOnly:true,
             secure:false,
             maxAge:age
-        }).json({message:"Logged in successfully"})
+        }).json(user)
 
     } catch (error) {
         console.log(error)
