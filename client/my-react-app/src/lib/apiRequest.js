@@ -1,6 +1,6 @@
 import axios from 'axios'
 const apiRequest = new axios.create({
-    baseURL: "http://localhost:5500/api",
+    baseURL: "https://e-commerce-3-gc1t.onrender.com/api",
     withCredentials:true
 })
 export default apiRequest;
