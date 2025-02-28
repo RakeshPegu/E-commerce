@@ -5,17 +5,17 @@ const verification = async (req, res, next) => {
     const token = req.cookies.token;
 
     if (!token) {
-      return res.status(401).json({ message: "Not authenticated" }); // ✅ Added `return`
+      return res.status(401).json({ message: "Not authenticated" }); 
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRECT_KEY); // ✅ Fixed typo & used sync verification
+    const decoded = jwt.verify(token, process.env.JWT_SECRECT_KEY); 
 
-    req.userId = decoded.id; // ✅ Correctly setting user ID
-    next(); // ✅ Proceed to the next middleware
+    req.userId = decoded.id; 
+    next(); 
 
   } catch (error) {
     if (error.name === "JsonWebTokenError") {
-      return res.status(403).json({ message: "Invalid token" }); // ✅ Better error message
+      return res.status(403).json({ message: "Invalid token" }); 
     } else if (error.name === "TokenExpiredError") {
       return res.status(401).json({ message: "Token expired" });
     }

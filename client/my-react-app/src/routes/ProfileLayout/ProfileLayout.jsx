@@ -54,6 +54,7 @@ const Profile = () => {
     }
     const {currentUser} = useContext(AuthContext);
     
+    console.log(currentUser.role)
     
   return (
     <div className="profile">

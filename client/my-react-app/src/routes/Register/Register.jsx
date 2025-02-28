@@ -43,7 +43,7 @@ const Register = () => {
         <h1>Register Form</h1>
       <div className="form">
         <form onSubmit={handleSubmit}>
-            <input type='text' name='username' autoFocus placeholder='Enter your username'/>
+            <input type='text' name='username'  placeholder='Enter your username'/>
             <input type='email' name='email'  placeholder='Enter your email adddress'/>
             <input type='password' name='password'placeholder='Enter the password'/>
             <button type='submit' disabled={loading}  >Register here</button>
@@ -51,7 +51,7 @@ const Register = () => {
         </form>
         
       </div>
-      <span className='comment'> Already have an account <Link to='/login'> Sign in </Link> </span>
+      <span className='comment'> Already have an account ? <Link to='/login'> Sign in </Link> </span>
         
      
         </div>

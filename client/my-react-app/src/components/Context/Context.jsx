@@ -1,10 +1,12 @@
 import React, { createContext, useEffect, useState } from 'react';
 
+
     //create a context
     export const AuthContext = createContext()
     // define the context provider
     
     export const AuthContextProvider = ({children})=>{
+        
         const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem("user")) || null);
     
         const update = (data)=>{
@@ -16,7 +18,7 @@ import React, { createContext, useEffect, useState } from 'react';
             } else {
                 localStorage.removeItem("user");
             }
-        }, [currentUser])
+        }, [currentUser, update])
         return (
             <AuthContext.Provider value={{update, currentUser}}>
                {children}

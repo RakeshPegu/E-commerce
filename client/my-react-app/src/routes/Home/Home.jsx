@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate()
+  const handleClick = ()=>{
+    navigate("/shop")
+  }
   return (
     <div className="home">
        
@@ -15,7 +20,7 @@ const Home = () => {
             </h1>
             <h2>Be Stylist, Be Bold and  Write your own Stories</h2>
             <div className="btn">
-                <button>Shop Now &nbsp;   →</button>
+                <button onClick={handleClick}>Shop Now &nbsp;   →</button>
             </div>
 
         </div>

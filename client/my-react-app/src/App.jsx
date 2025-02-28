@@ -3,13 +3,16 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Home from './routes/Home/Home';
 import Register from './routes/Register/Register';
 import Login from './routes/Login/Login';
-import {Layout, RequiredAuthentication } from './components/Layout/Layout';
+import {Layout, RequiredAdmin, RequiredAuthentication } from './components/Layout/Layout';
 
 import Error from './components/ErrorPage/Error';
 import MangageAddress from './routes/MangageAddress/MangageAddress';
 import ProfilePage from './routes/ProfilePage/ProfilePage';
 import Profile from './routes/ProfileLayout/ProfileLayout';
 import EditPage from './routes/EditPage/EditPage';
+import ShopPage from './routes/ShopPage/shopPage';
+import AdminHomepage from './Admin/AdminHomepage/AdminHomepage';
+
 const route = createBrowserRouter([
   {
     path: "/",
@@ -27,15 +30,31 @@ const route = createBrowserRouter([
       {
         path: '/login',
         element :<Login/>
+      },
+      {
+        path: "/shop",
+        element: <ShopPage/>
       }
     ]
   
   },
   {
+    path: "/admin",
+    element: <RequiredAdmin/>,
+    errorElement: <Error/>,
+    children: [
+      {
+        path: "",
+        element: <AdminHomepage/>
+      }
+    ]
+  },
+  {
     path :"/",
     element: <RequiredAuthentication/>,
     errorElement: <Error/>,
-    children: [
+    children: [    
+           
       {
         path: "/profile/:userId",
         element: <Profile/>,
