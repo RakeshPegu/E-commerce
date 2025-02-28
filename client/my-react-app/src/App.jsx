@@ -10,8 +10,9 @@ import MangageAddress from './routes/MangageAddress/MangageAddress';
 import ProfilePage from './routes/ProfilePage/ProfilePage';
 import Profile from './routes/ProfileLayout/ProfileLayout';
 import EditPage from './routes/EditPage/EditPage';
-import ShopPage from './routes/ShopPage/shopPage';
+
 import AdminHomepage from './Admin/AdminHomepage/AdminHomepage';
+import ShopPage from './routes/ShopPage/shopPage';
 
 const route = createBrowserRouter([
   {
@@ -60,15 +61,15 @@ const route = createBrowserRouter([
         element: <Profile/>,
         children :[
           {
-            path:"/profile/:userId",
+            path:"",
             element: <ProfilePage/>
           },
           {
-            path:"/profile/:userId/manage_address",
+            path:"manage_address",
             element: <MangageAddress/>
           },
           {
-            path:"/profile/:userId/edit",
+            path:"edit",
             element: <EditPage/>
           }
         ] 

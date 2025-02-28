@@ -1,12 +1,12 @@
 import React from 'react';
 import './shopPage.scss';
 
-const ShopPage = () => {
+const shopPage = () => {
   return (
-    <div className="shopPage">
-      this is the page where i will shop
+    <div className="shopage">
+     
     </div>
   );
 };
 
-export default ShopPage;
+export default shopPage;
