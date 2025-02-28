@@ -12,7 +12,8 @@ import Profile from './routes/ProfileLayout/ProfileLayout';
 import EditPage from './routes/EditPage/EditPage';
 
 import AdminHomepage from './Admin/AdminHomepage/AdminHomepage';
-import ShopPage from './routes/ShopPage/shopPage';
+import Shop from './routes/Shop/Shop';
+
 
 const route = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const route = createBrowserRouter([
       },
       {
         path: "/shop",
-        element: <ShopPage/>
+        element: <Shop/>
       }
     ]
   
